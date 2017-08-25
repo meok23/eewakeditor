@@ -1,0 +1,153 @@
+/**
+ * markdown 编辑器
+ *
+ * @author 煤老板 <meok23@sina.com>
+ * @date 2017-03-13
+ */
+
+.eewakeditor {
+    border: solid 1px #e2e2e2;
+    background-color: #ffffff;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* 编辑器按钮样式 */
+
+.eewakeditor .eewakeditor-tool {
+    padding: 7px 4px 4px 4px;
+    border-bottom: solid 1px #e2e2e2;
+    overflow: hidden;
+}
+
+.eewakeditor-tool i,
+.eewakeditor-tool span {
+    font-style: normal;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.eewakeditor-tool span {
+    color: #cccccc;
+}
+
+.eewakeditor-tool i {
+    min-width: 18px;
+    height: 20px;
+    padding: 0 4px;
+    cursor: pointer;
+
+    color: #666;
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+
+.eewakeditor-tool i:hover {
+    background-color: #b7b7b7;
+    color: #fff;
+}
+
+/* 编辑器【具体】按钮样式 */
+
+.eewakeditor-tool .bold {
+    font-weight: bold;
+}
+
+.eewakeditor-tool .italic {
+    font-style: italic;
+}
+
+.eewakeditor-tool .quote,
+.eewakeditor-tool .link,
+.eewakeditor-tool .code,
+.eewakeditor-tool .img {
+    background-image: url("./icon.png");
+    background-repeat: no-repeat;
+}
+
+.eewakeditor-tool .quote:hover {
+    background-position: -21px -21px;
+}
+
+.eewakeditor-tool .quote {
+    background-position: -21px 0;
+}
+
+.eewakeditor-tool .link:hover {
+    background-position: 0 -21px;
+}
+
+.eewakeditor-tool .link {
+    background-position: 0 0;
+}
+
+.eewakeditor-tool .code:hover {
+    background-position: -43px -21px;
+}
+
+.eewakeditor-tool .code {
+    background-position: -43px 0;
+}
+
+/* 编辑器【图片】按钮样式 */
+.eewakeditor-tool .img:hover {
+    background-position: -65px -21px;
+}
+
+.eewakeditor-tool i.img {
+    width: 26px;
+    padding: 0;
+    background-position: -65px 0;
+    position: relative;
+}
+
+.eewakeditor-tool .img input[type=file] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+/* 编辑器【切换】按钮样式 */
+.eewakeditor-tool i.preview,
+.eewakeditor-tool i.write,
+.eewakeditor-tool i.full_screen,
+.eewakeditor-tool i.normal_screen {
+    float: right;
+}
+
+.eewakeditor-tool i.write,
+.eewakeditor-tool i.normal_screen {
+    display: none;
+}
+
+/* 编辑器 textarea 的样式 && 预览区域的样式 */
+.eewakeditor textarea.eewakeditor-content,
+.eewakeditor div.preview_box {
+    width: 100%;
+    padding: 9px;
+    margin: 0;
+    border: 0;
+
+    font-family: "Microsoft Yahei";
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.eewakeditor textarea.eewakeditor-content {
+    outline: none;
+    resize: none;
+}
+
+.eewakeditor div.preview_box {
+    overflow-y: auto;
+    display: none;
+
+    background-color: #ffffff;
+}

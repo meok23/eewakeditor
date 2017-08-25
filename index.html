@@ -1,0 +1,84 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="eewakeditor.css">
+    <link rel="stylesheet" href="lib/github-markdown.css">
+    <link rel="stylesheet" href="lib/prism/prism.css">
+
+    <style>
+        body {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="eewakeditor" id="eewakeditor">
+    <div class="eewakeditor-tool">
+        <i class="bold" data-role="bold" title="加粗">B</i>
+        <i class="italic" data-role="italic" title="斜体">italic</i>
+        <i title="二级标题" data-role="h2">h2</i>
+        <span>|</span>
+        <i class="quote" data-role="quote" title="引用">&nbsp;</i>
+        <i class="link" data-role="link" title="链接">&nbsp;</i>
+        <i class="code" data-role="code" title="代码">&nbsp;</i>
+        <i class="img">&nbsp;
+            <input id="eewakeditor_file" name="img" type="file" title="图片">
+        </i>
+
+        <i class="preview" data-role="preview" title="预览">预览</i>
+        <i class="write" data-role="write" title="撰写">撰写</i>
+        <i class="full_screen" data-role="full_screen" title="全屏">全屏</i>
+        <i class="normal_screen" data-role="normal_screen" title="恢复">恢复</i>
+    </div>
+    <textarea class="eewakeditor-content">## qwer</textarea>
+    <div class="preview_box markdown-body" data-role="preview_box"></div>
+</div>
+
+<script src="lib/jquery.js"></script>
+<script src="eewakeditor.js"></script>
+<script src="lib/marked.js"></script>
+<script src="lib/upload/upload.js"></script>
+<script src="lib/prism/prism.js"></script>
+
+<script>
+    $(function () {
+
+        // 构建编辑器
+        var editor = eewakeditor.build('eewakeditor');
+
+        // 图片上传
+        $('#eewakeditor_file').on('change', function () {
+            $.upload({
+                url: 'lib/upload/action.php', // 此处填入处理图片的程序URL
+                data: null,
+                fileId: $(this).attr('id'),
+                success: function (res) {
+                    var img = '![alt](' + res.data.src + ')';
+                    eewakeditor.replace(img);
+                }
+            });
+        });
+
+        // 效果预览
+        var textarea = editor.find('textarea');
+        var mdPreview = function () {
+            var mdHtml = marked(textarea.val());
+            editor.find('[data-role=preview_box]').html(mdHtml);
+
+            // 代码高亮
+            $('.markdown-body pre code').each(function (index, element) {
+                Prism.highlightElement(element);
+            });
+        };
+        textarea.on('input propertychange', function () {
+            mdPreview();
+        });
+        mdPreview();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+# 常规忽略
+###############################
+
+# vim
+*~
+*.wap
+*.wso
+
+# ide
+.settings/
+.buildpath
+.project
+.idea/
+nbproject/
+
+# windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# mac
+.DS_Store
+*/.DS_Store
+
+# other
+.svn/
+
+
+# 项目忽略
+###############################
+
+*/upload/img/*
+/runtime/
