@@ -12,7 +12,7 @@
 - marked                # markdown渲染
 - github-markdown       # 样式美化
 - prism                 # 代码高亮
-- lib/upload/upload.js  # 文件上传，这个也是我自己写的
+- lib/upload/upload.js  # 文件上传
 
 ## 使用方式
 
